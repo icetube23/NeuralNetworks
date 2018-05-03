@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace NeuralNetworks
 {
-    class Program
+    public abstract class Neuron
     {
-        static void Zain(string[] args)
-        {
-
-        }
+        public abstract double GetValue();
     }
 }
