@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NeuralNetworks.ActivationFunctions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace NeuralNetworks
     class WorkingNeuron : Neuron
     {
         private List<Connection> connections = new List<Connection>();
+        private IActivationFunction activationFunction = new Sigmoid();
 
         public override double GetValue()
         {
@@ -17,7 +19,7 @@ namespace NeuralNetworks
             {
                 sum += c.GetValue();
             }
-            return sum;
+            return activationFunction.Activation(sum);
         }
 
         public void AddConnection(Connection c)
