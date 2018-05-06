@@ -19,7 +19,9 @@ namespace NeuralNetworks.NeuralNetworkTest
 
             WorkingNeuron o1 = nn.CreateNewOutput();
 
-            nn.CreateFullMesh(3, -1, 2, 0);
+            nn.CreateHiddenNeurons(2);
+
+            nn.CreateFullMesh(1, 2, 3, 4, 5, 6, 7, 8, 9, 1);
 
             i1.SetValue(1);
             i2.SetValue(2);
