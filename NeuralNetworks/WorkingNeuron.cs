@@ -43,5 +43,14 @@ namespace NeuralNetworks
         {
             connections.Add(c);
         }
+
+        public void DeltaLearning(double epsilon, double smallDelta)
+        {
+            foreach(Connection connection in connections)
+            {
+                double bigDelta = epsilon * smallDelta * connection.GetValue();
+                connection.AddWeight(bigDelta);
+            }
+        }
     }
 }

@@ -17,6 +17,11 @@ namespace NeuralNetworks
             this.weight = weight;
         }
 
+        public void AddWeight(double weightDelta)
+        {
+            weight += weightDelta;
+        }
+
         public double GetValue()
         {
             return neuron.GetValue() * weight;

@@ -118,5 +118,24 @@ namespace NeuralNetworks
                 }
             }
         }
+
+        public void DeltaLearning(double[] shoulds, double epsilon)
+        {
+            if (shoulds.Length != outputNeurons.Count)
+            {
+                throw new ArgumentException();
+            }
+
+            if (hiddenNeurons.Count != 0)
+            {
+                throw new InvalidOperationException();
+            }
+
+            for (int i = 0; i < shoulds.Length; i++)
+            {
+                double smallDelta = shoulds[i] - outputNeurons[i].GetValue();
+                outputNeurons[i].DeltaLearning(epsilon, smallDelta);
+            }
+        }
     }
 }
