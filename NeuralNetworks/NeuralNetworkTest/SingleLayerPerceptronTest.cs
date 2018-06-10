@@ -19,14 +19,22 @@ namespace NeuralNetworks.NeuralNetworkTest
 
             WorkingNeuron o1 = nn.CreateNewOutput();
 
-            nn.CreateHiddenNeurons(2);
-
-            nn.CreateFullMesh(1, 2, 3, 4, 5, 6, 7, 8, 9, 1);
+            nn.CreateFullMesh(0.2, 0.9, 0.3, 0.65);
 
             i1.SetValue(1);
             i2.SetValue(2);
             i3.SetValue(3);
             i4.SetValue(4);
+
+            double[] should = new double[1];
+            should[0] = 42;
+
+            Console.WriteLine(o1.GetValue());
+
+            for (int i = 0; i < 200; i++)
+            {
+                nn.DeltaLearning(should, epsilon: 0.01);
+            }
 
             Console.WriteLine(o1.GetValue());
             Console.Read();
