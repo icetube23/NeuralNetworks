@@ -8,7 +8,7 @@ namespace NeuralNetworks.NeuralNetworkTest
 {
     class SingleLayerPerceptronTest
     {
-        public static void Main(string[] args)
+        public static void Main(String[] args)
         {
             NeuralNetwork nn = new NeuralNetwork();
 
@@ -29,14 +29,14 @@ namespace NeuralNetworks.NeuralNetworkTest
             double[] should = new double[1];
             should[0] = 42;
 
-            Console.WriteLine(o1.Value);
+            Console.WriteLine(o1.GetValue());
 
             for (int i = 0; i < 200; i++)
             {
                 nn.DeltaLearning(should, epsilon: 0.01);
+                Console.WriteLine(o1.GetValue());
             }
 
-            Console.WriteLine(o1.Value);
             Console.Read();
         }
     }
