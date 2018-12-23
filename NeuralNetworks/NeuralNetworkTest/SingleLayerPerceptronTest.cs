@@ -29,14 +29,14 @@ namespace NeuralNetworks.NeuralNetworkTest
             double[] should = new double[1];
             should[0] = 42;
 
-            Console.WriteLine(o1.GetValue());
+            Console.WriteLine(o1.Value);
 
             for (int i = 0; i < 200; i++)
             {
                 nn.DeltaLearning(should, epsilon: 0.01);
-                Console.WriteLine(o1.GetValue());
             }
 
+            Console.WriteLine(o1.Value);
             Console.Read();
         }
     }
