@@ -8,6 +8,6 @@ namespace NeuralNetworks
 {
     public abstract class Neuron
     {
-        public abstract double GetValue();
+        public abstract double Value { get; }
     }
 }

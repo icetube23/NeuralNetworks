@@ -29,14 +29,17 @@ namespace NeuralNetworks
             this.activationFunction = activationFunction;
         }
 
-        public override double GetValue()
+        public override double Value
         {
-            double sum = 0;
-            foreach (Connection c in connections)
+            get
             {
-                sum += c.GetValue();
+                double sum = 0;
+                foreach (Connection c in connections)
+                {
+                    sum += c.Value;
+                }
+                return activationFunction.Activation(sum);
             }
-            return activationFunction.Activation(sum);
         }
 
         public void AddConnection(Connection c)
@@ -46,9 +49,9 @@ namespace NeuralNetworks
 
         public void DeltaLearning(double epsilon, double smallDelta)
         {
-            foreach(Connection connection in connections)
+            foreach (Connection connection in connections)
             {
-                double bigDelta = epsilon * smallDelta * connection.GetValue();
+                double bigDelta = epsilon * smallDelta * connection.Neuron.Value;
                 connection.AddWeight(bigDelta);
             }
         }

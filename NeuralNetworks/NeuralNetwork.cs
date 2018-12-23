@@ -14,7 +14,7 @@ namespace NeuralNetworks
         private List<WorkingNeuron> outputNeurons = new List<WorkingNeuron>();
 
         public InputNeuron CreateNewInput()
-        {
+        { 
             InputNeuron inputNeuron = new InputNeuron();
             inputNeurons.Add(inputNeuron);
             return inputNeuron;
@@ -133,7 +133,7 @@ namespace NeuralNetworks
 
             for (int i = 0; i < shoulds.Length; i++)
             {
-                double smallDelta = shoulds[i] - outputNeurons[i].GetValue();
+                double smallDelta = shoulds[i] - outputNeurons[i].Value;
                 outputNeurons[i].DeltaLearning(epsilon, smallDelta);
             }
         }

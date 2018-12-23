@@ -8,23 +8,18 @@ namespace NeuralNetworks
 {
     class Connection
     {
-        private Neuron neuron;
         private double weight;
 
         public Connection(Neuron neuron, double weight)
         {
-            this.neuron = neuron;
+            Neuron = neuron;
             this.weight = weight;
         }
 
-        public void AddWeight(double weightDelta)
-        {
-            weight += weightDelta;
-        }
+        public void AddWeight(double weightDelta) => weight += weightDelta;
 
-        public double GetValue()
-        {
-            return neuron.GetValue() * weight;
-        }
+        public double Value => Neuron.Value * weight;
+
+        public Neuron Neuron { get; }
     }
 }

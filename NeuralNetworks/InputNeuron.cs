@@ -10,14 +10,8 @@ namespace NeuralNetworks
     {
         private double value = 0;
 
-        public override double GetValue()
-        {
-            return value;
-        }
+        public override double Value => value;
 
-        public void SetValue(double value)
-        {
-            this.value = value;
-        }
+        public void SetValue(double value) => this.value = value;
     }
 }
