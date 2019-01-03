@@ -46,7 +46,7 @@ namespace NeuralNetworks.MNISTDatabase
             Data = data;
         }
 
-        public int Label { get; private set; }
+        public int Label { get; }
 
         public byte[,] Data { get; }
     }

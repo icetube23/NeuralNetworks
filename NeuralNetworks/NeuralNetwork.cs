@@ -122,9 +122,8 @@ namespace NeuralNetworks
         public void CreateRandomFullMesh()
         {
             Random random = new Random();
-            double[] weights = new double[inputNeurons.Count * outputNeurons.Count];
-            weights = weights.Select(_ => random.NextDouble()).ToArray();
-
+            double[] weights = Enumerable.Repeat(0, inputNeurons.Count * outputNeurons.Count)
+                                         .Select(_ => random.NextDouble()).ToArray();
             try
             {
                 CreateFullMesh(weights);
