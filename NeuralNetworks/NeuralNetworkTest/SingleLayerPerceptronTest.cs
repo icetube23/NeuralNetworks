@@ -1,42 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using NeuralNetworks.MNISTDatabase;
 
 namespace NeuralNetworks.NeuralNetworkTest
 {
     class SingleLayerPerceptronTest
     {
-        public static void Main(String[] args)
+        public static void Main(string[] args)
         {
+            // Load training data
+            List<Digit> digits = MNISTDecoder.LoadData("D:\\MNIST\\train-labels.idx1-ubyte",
+                                                       "D:\\MNIST\\train-images.idx3-ubyte");
+
+            // Create the network
             NeuralNetwork nn = new NeuralNetwork();
+            InputNeuron[,] inputs = new InputNeuron[28, 28];
+            WorkingNeuron[] outputs = new WorkingNeuron[10];
 
-            InputNeuron i1 = nn.CreateNewInput();
-            InputNeuron i2 = nn.CreateNewInput();
-            InputNeuron i3 = nn.CreateNewInput();
-            InputNeuron i4 = nn.CreateNewInput();
-
-            WorkingNeuron o1 = nn.CreateNewOutput();
-
-            nn.CreateFullMesh(0.2, 0.9, 0.3, 0.65);
-
-            i1.SetValue(1);
-            i2.SetValue(2);
-            i3.SetValue(3);
-            i4.SetValue(4);
-
-            double[] should = new double[1];
-            should[0] = 42;
-
-            Console.WriteLine(o1.Value);
-
-            for (int i = 0; i < 200; i++)
+            for (int i = 0; i < inputs.GetLength(0); i++)
             {
-                nn.DeltaLearning(should, epsilon: 0.01);
+                for (int j = 0; j < inputs.GetLength(1); j++)
+                {
+                    inputs[i, j] = nn.CreateNewInput();
+                }
             }
 
-            Console.WriteLine(o1.Value);
+            for (int i = 0; i < outputs.Length; i++)
+            {
+                outputs[i] = nn.CreateNewOutput();
+            }
+
+            nn.CreateRandomFullMesh();
+
             Console.Read();
         }
     }

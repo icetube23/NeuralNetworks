@@ -65,6 +65,7 @@
     <Compile Include="ActivationFunctions\Sigmoid.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="InputNeuron.cs" />
+    <Compile Include="MNISTDatabase\MNISTDecoder.cs" />
     <Compile Include="NeuralNetwork.cs" />
     <Compile Include="NeuralNetworkTest\SingleLayerPerceptronTest.cs" />
     <Compile Include="Neuron.cs" />

@@ -119,6 +119,22 @@ namespace NeuralNetworks
             }
         }
 
+        public void CreateRandomFullMesh()
+        {
+            Random random = new Random();
+            double[] weights = new double[inputNeurons.Count * outputNeurons.Count];
+            weights = weights.Select(_ => random.NextDouble()).ToArray();
+
+            try
+            {
+                CreateFullMesh(weights);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         public void DeltaLearning(double[] shoulds, double epsilon)
         {
             if (shoulds.Length != outputNeurons.Count)
