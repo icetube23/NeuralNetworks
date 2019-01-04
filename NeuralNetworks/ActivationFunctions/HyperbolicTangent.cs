@@ -12,5 +12,10 @@ namespace NeuralNetworks.ActivationFunctions
         {
             return Math.Tanh(input);
         }
+
+        public double ActivationPrime(double input)
+        {
+            return 1 - Math.Pow(Math.Tanh(input), 2);
+        }
     }
 }

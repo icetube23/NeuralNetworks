@@ -12,5 +12,10 @@ namespace NeuralNetworks.ActivationFunctions
         {
             return 1 / (1 + Math.Exp(-input));
         }
+
+        public double ActivationPrime(double input)
+        {
+            return Math.Exp(input) / Math.Pow((1 + Math.Exp(input)), 2);
+        }
     }
 }

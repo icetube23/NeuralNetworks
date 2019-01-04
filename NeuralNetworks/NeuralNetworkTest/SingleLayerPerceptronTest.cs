@@ -10,16 +10,16 @@ namespace NeuralNetworks.NeuralNetworkTest
     class SingleLayerPerceptronTest
     {
         // Load training data
-        static readonly List<Digit> digits = MNISTDecoder.LoadData("D:\\MNIST\\train-labels.idx1-ubyte",
-                                                                   "D:\\MNIST\\train-images.idx3-ubyte");
+        public static readonly List<Digit> digits = MNISTDecoder.LoadData("D:\\MNIST\\train-labels.idx1-ubyte",
+                                                                          "D:\\MNIST\\train-images.idx3-ubyte");
         // Load test data
-        static readonly List<Digit> testDigits = MNISTDecoder.LoadData("D:\\MNIST\\t10k-labels.idx1-ubyte",
-                                                                       "D:\\MNIST\\t10k-images.idx3-ubyte");
+        public static readonly List<Digit> testDigits = MNISTDecoder.LoadData("D:\\MNIST\\t10k-labels.idx1-ubyte",
+                                                                              "D:\\MNIST\\t10k-images.idx3-ubyte");
 
         // Create the network
-        static NeuralNetwork nn = new NeuralNetwork();
-        static InputNeuron[,] inputs = new InputNeuron[28, 28];
-        static WorkingNeuron[] outputs = new WorkingNeuron[10];
+        public static NeuralNetwork nn = new NeuralNetwork();
+        public static InputNeuron[,] inputs = new InputNeuron[28, 28];
+        public static WorkingNeuron[] outputs = new WorkingNeuron[10];
 
         public static void Main(string[] args)
         {
@@ -46,6 +46,7 @@ namespace NeuralNetworks.NeuralNetworkTest
                 Learn(epsilon);
                 epsilon *= 0.9;
             }
+
             Console.Read();
         }
 

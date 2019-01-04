@@ -48,7 +48,7 @@ namespace NeuralNetworks
         {
             foreach (Connection connection in connections)
             {
-                double bigDelta = epsilon * smallDelta * connection.Value;
+                double bigDelta = epsilon * smallDelta * connection.Neuron.Value;
                 connection.AddWeight(bigDelta);
             }
         }

@@ -12,5 +12,10 @@ namespace NeuralNetworks.ActivationFunctions
         {
             return input;
         }
+
+        public double ActivationPrime(double input)
+        {
+            return 1;
+        }
     }
 }
