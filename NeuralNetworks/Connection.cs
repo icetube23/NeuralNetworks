@@ -8,7 +8,6 @@ namespace NeuralNetworks
 {
     class Connection
     {
-
         public Connection(Neuron neuron, double weight)
         {
             Neuron = neuron;

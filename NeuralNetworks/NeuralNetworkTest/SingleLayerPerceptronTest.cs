@@ -39,6 +39,46 @@ namespace NeuralNetworks.NeuralNetworkTest
 
             nn.CreateRandomFullMesh();
 
+            for (int i = 0; i < inputs.GetLength(0); i++)
+            {
+                for (int j = 0; j < inputs.GetLength(1); j++)
+                {
+                    inputs[i, j].SetValue(testDigits[0].Data[i, j]);
+                }
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write(outputs[i].Value + ", ");
+            }
+            Console.WriteLine(testDigits[0].Label);
+
+            Learn(0.02);
+            for (int i = 0; i < inputs.GetLength(0); i++)
+            {
+                for (int j = 0; j < inputs.GetLength(1); j++)
+                {
+                    inputs[i, j].SetValue(testDigits[0].Data[i, j]);
+                }
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write(outputs[i].Value + ", ");
+            }
+            Console.WriteLine(testDigits[0].Label);
+            Learn(0.02);
+            for (int i = 0; i < inputs.GetLength(0); i++)
+            {
+                for (int j = 0; j < inputs.GetLength(1); j++)
+                {
+                    inputs[i, j].SetValue(testDigits[0].Data[i, j]);
+                }
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write(outputs[i].Value + ", ");
+            }
+            Console.WriteLine(testDigits[0].Label);
+            /*
             double epsilon = 0.01;
             while (true)
             {
@@ -46,7 +86,7 @@ namespace NeuralNetworks.NeuralNetworkTest
                 Learn(epsilon);
                 epsilon *= 0.9;
             }
-
+            */
             Console.Read();
         }
 
