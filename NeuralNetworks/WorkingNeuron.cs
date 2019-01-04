@@ -42,16 +42,13 @@ namespace NeuralNetworks
             }
         }
 
-        public void AddConnection(Connection c)
-        {
-            connections.Add(c);
-        }
+        public void AddConnection(Connection c) => connections.Add(c);
 
         public void DeltaLearning(double epsilon, double smallDelta)
         {
             foreach (Connection connection in connections)
             {
-                double bigDelta = epsilon * smallDelta * connection.Neuron.Value;
+                double bigDelta = epsilon * smallDelta * connection.Value;
                 connection.AddWeight(bigDelta);
             }
         }

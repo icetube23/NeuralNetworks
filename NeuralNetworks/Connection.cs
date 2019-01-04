@@ -14,7 +14,7 @@ namespace NeuralNetworks
             Weight = weight;
         }
 
-        public Neuron Neuron { get; }
+        private Neuron Neuron { get; }
 
         private double Weight { get; set; }
 
