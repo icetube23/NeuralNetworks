@@ -134,7 +134,7 @@ namespace NeuralNetworks
             }
         }
 
-        public void DeltaLearning(double[] shoulds, double epsilon)
+        public void DeltaLearning(double epsilon, params double[] shoulds)
         {
             if (shoulds.Length != outputNeurons.Count)
             {

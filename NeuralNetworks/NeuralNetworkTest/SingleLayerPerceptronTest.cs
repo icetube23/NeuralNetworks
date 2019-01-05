@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using NeuralNetworks.MNISTDatabase;
+using NeuralNetworks.ActivationFunctions;
 
 namespace NeuralNetworks.NeuralNetworkTest
 {
@@ -83,7 +84,7 @@ namespace NeuralNetworks.NeuralNetworkTest
                 }
                 double[] shoulds = new double[10];
                 shoulds[digit.Label] = 1;
-                nn.DeltaLearning(shoulds, epsilon);
+                nn.DeltaLearning(epsilon, shoulds);
             }
         }
     }
