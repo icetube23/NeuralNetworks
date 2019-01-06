@@ -43,9 +43,10 @@ namespace NeuralNetworks.NeuralNetworkTest
             
             // Learn in an endless loop and display results
             double epsilon = 0.01;
+            int epoch = 0;
             while (true)
             {
-                Test();
+                Test(epoch++);
                 Learn(epsilon);
                 epsilon *= 0.9;
             }
@@ -53,7 +54,7 @@ namespace NeuralNetworks.NeuralNetworkTest
             Console.Read();
         }
 
-        public static void Test()
+        public static void Test(int epoch)
         {
             // Compare networks output for the test dataset with expect results
             int correct = 0;
@@ -71,7 +72,7 @@ namespace NeuralNetworks.NeuralNetworkTest
                 correct += Array.IndexOf(outputValues, outputValues.Max()) == digit.Label ? 1 : 0;
             }
 
-            Console.WriteLine("Percentage of correct guesses: " + (double) correct / testDigits.Count * 100 + "%");
+            Console.WriteLine("Percentage of correct guesses in epoch " + epoch + ": " + (double) correct / testDigits.Count * 100 + "%");
         }
 
         public static void Learn(double epsilon)
