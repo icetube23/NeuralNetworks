@@ -38,8 +38,10 @@ namespace NeuralNetworks.NeuralNetworkTest
                 outputs[i] = nn.CreateNewOutput();
             }
 
+            // Create connections with random weights
             nn.CreateRandomFullMesh();
             
+            // Learn in an endless loop and display results
             double epsilon = 0.01;
             while (true)
             {
@@ -53,6 +55,7 @@ namespace NeuralNetworks.NeuralNetworkTest
 
         public static void Test()
         {
+            // Compare networks output for the test dataset with expect results
             int correct = 0;
 
             foreach (var digit in testDigits)
@@ -73,6 +76,7 @@ namespace NeuralNetworks.NeuralNetworkTest
 
         public static void Learn(double epsilon)
         {
+            // Conduct delta learning for every instance in the training dataset with specified learning parameter
             foreach (var digit in digits)
             {
                 for (int i = 0; i < digit.Data.GetLength(0); i++)
