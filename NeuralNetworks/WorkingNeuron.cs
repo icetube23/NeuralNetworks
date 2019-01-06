@@ -46,10 +46,10 @@ namespace NeuralNetworks
 
         public void DeltaLearning(double epsilon, double smallDelta)
         {
+            double deltaFactor = epsilon * smallDelta * activationFunction.ActivationPrime(Value);
             foreach (Connection connection in connections)
             {
-                double bigDelta = epsilon * smallDelta * connection.Neuron.Value;
-                connection.AddWeight(bigDelta);
+                connection.AddWeight(deltaFactor * connection.Neuron.Value);
             }
         }
     }
