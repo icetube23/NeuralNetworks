@@ -17,13 +17,13 @@ namespace NeuralNetworks.MNISTDatabase
 
             byte[] labels = File.ReadAllBytes(labelPath);
             byte[] images = File.ReadAllBytes(imagePath);
-            byte[,] data = new byte[28, 28];
 
             int labelHead = 8;
             int imageHead = 16;
 
             while (imageHead < images.Length)
             {
+                byte[,] data = new byte[28, 28];
                 for (int i = 0; i < data.GetLength(0); i++)
                 {
                     for (int j = 0; j < data.GetLength(1); j++)
