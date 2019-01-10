@@ -72,7 +72,7 @@ namespace NeuralNetworks.NeuralNetworkTest
                 correct += Array.IndexOf(outputValues, outputValues.Max()) == digit.Label ? 1 : 0;
             }
 
-            Console.WriteLine("Percentage of correct guesses in epoch " + epoch + ": " + (double) correct / testDigits.Count * 100 + "%");
+            Console.WriteLine("Percentage of correct guesses in epoch " + epoch + ": " + (double)correct / testDigits.Count * 100 + "%");
         }
 
         public static void Learn(double epsilon)
