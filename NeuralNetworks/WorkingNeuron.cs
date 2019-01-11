@@ -34,9 +34,9 @@ namespace NeuralNetworks
             get
             {
                 double sum = 0;
-                foreach (Connection c in connections)
+                foreach (Connection connection in connections)
                 {
-                    sum += c.Value;
+                    sum += connection.Value;
                 }
                 return activationFunction.Activation(sum);
             }
