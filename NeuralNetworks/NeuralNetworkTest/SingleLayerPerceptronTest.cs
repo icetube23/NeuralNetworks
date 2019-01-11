@@ -35,7 +35,7 @@ namespace NeuralNetworks.NeuralNetworkTest
 
             for (int i = 0; i < outputs.Length; i++)
             {
-                outputs[i] = nn.CreateNewOutput();
+                outputs[i] = nn.CreateNewOutput(new Sigmoid());
             }
 
             // Create connections with random weights
